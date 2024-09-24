@@ -17,14 +17,14 @@ jobs:
     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Install dependencies
-      working-directory: ./backend  
+      working-directory: ./back-end  
       run: npm install
 
     - name: Build the project
-      working-directory: ./backend  
+      working-directory: ./back-end  
       run: npm run build
 
     - name: Run tests
-      working-directory: ./backend  
+      working-directory: ./back-end  
       run: npm test
 
