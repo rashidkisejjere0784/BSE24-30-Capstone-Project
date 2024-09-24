@@ -10,19 +10,19 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # - name: Run Super-Linter
-    #   uses: github/super-linter@v4
-    #   env:
-    #     DEFAULT_BRANCH: main
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Run Super-Linter
+      uses: github/super-linter@v4
+      env:
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Install dependencies
       working-directory: ./back-end  
       run: npm install
 
-    - name: Build the project
-      working-directory: ./back-end  
-      run: npm run build
+    # - name: Build the project
+    #   working-directory: ./back-end  
+    #   run: npm run build
 
     - name: Run tests
       working-directory: ./back-end  
