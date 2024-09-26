@@ -1,0 +1,32 @@
+name: Tests
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # - name: Run Super-Linter
+    #   uses: github/super-linter@v4
+    #   env:
+    #     DEFAULT_BRANCH: main
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     VALIDATE_ALL_CODEBASE: false
+    #     # Restrict linter to only the back-end directory
+    #     LINTER_RULES_PATH: ./back-end
+
+    - name: Install dependencies
+      working-directory: ./back-end
+      run: npm install
+
+    # - name: Build the project
+    #   working-directory: ./back-end  
+    #   run: npm run build
+
+    # - name: Run tests
+    #   working-directory: ./back-end  
+    #   run: npm test
