@@ -10,6 +10,7 @@ app.use(express.json());
 mongoose.set('debug', true);
 
 const dbURI = 'mongodb+srv://user123:user123@capstonebackend.o78na.mongodb.net/capstone-backend?retryWrites=true&w=majority'
+var server = null;
 mongoose.connect(dbURI).then((result) => {
   server = app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
