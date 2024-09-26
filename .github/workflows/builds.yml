@@ -10,14 +10,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # - name: Run Super-Linter
-    #   uses: github/super-linter@v4
-    #   env:
-    #     DEFAULT_BRANCH: main
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #     VALIDATE_ALL_CODEBASE: false
-    #     # Restrict linter to only the back-end directory
-    #     LINTER_RULES_PATH: ./back-end
+    - name: Run Super-Linter
+      uses: github/super-linter@v4
+      env:
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VALIDATE_ALL_CODEBASE: false
+        # Restrict linter to only the back-end directory
+        LINTER_RULES_PATH: ./back-end
 
     - name: Install dependencies
       working-directory: ./back-end
