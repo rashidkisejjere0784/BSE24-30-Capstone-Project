@@ -1,7 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const routes = require('./routes');
 const mongoose = require('mongoose');
+const routes = require('./routes');
 
 dotenv.config();
 
@@ -13,19 +13,19 @@ mongoose.set('debug', true);
 const port = 3000;
 
 // MongoDB connection URI
-const dbURI = 'mongodb+srv://user123:user123@capstonebackend.o78na.mongodb.net/capstone-backend?retryWrites=true&w=majority';
-
-let server; // Initialize server variable outside of the connection promise
+const dbURI =
+  'mongodb+srv://user123:user123@capstonebackend.o78na.mongodb.net/capstone-backend?retryWrites=true&w=majority';
 
 // Connect to MongoDB
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose
+  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     // Start the server after successful connection
-    server = app.listen(port, () => {
+    const server = app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
   })
-  .catch((error) => console.log("Connection error:", error));
+  .catch((error) => console.log('Connection error:', error));
 
 // Define API routes
 app.use('/api', routes);
@@ -41,4 +41,4 @@ const closeDatabase = async () => {
 };
 
 // Export the app, server, and close function
-module.exports = { app, server, closeDatabase };
+module.exports = { app, closeDatabase };
