@@ -1,9 +1,9 @@
-const express = require('express')
-const ProductController = require('../Controllers/productController')
-const authMiddleware = require('../middleware/authMiddleware')
+const express = require('express');
+const ProductController = require('../Controllers/productController');
+const authMiddleware = require('../middleware/authMiddleware');
 
-const route = express.Router()
+const route = express.Router();
 
-route.post('/product/add', authMiddleware, ProductController.addProduct)
+route.post('/product/add', authMiddleware, ProductController.addProduct);
 
-module.exports = route
+module.exports = route;
