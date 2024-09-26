@@ -24,3 +24,8 @@ jobs:
         run: npm run lint
         continue-on-error: true # To ensure the job continues even if linting fails
         working-directory: back-end # Set directory to back-end
+
+      - name: Run ESLint on Frontend
+        run: npm run lint
+        working-directory: front-end # Set directory to front-end
+        continue-on-error: true # To ensure the job continues even if linting fails
