@@ -14,11 +14,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Use the version your project requires
+          node-version: '22.9.0' # Use the version your project requires
 
       - name: Install dependencies
         run: npm install
+        working-directory: back-end # Set directory to back-end
 
       - name: Run ESLint
         run: npm run lint
         continue-on-error: true # To ensure the job continues even if linting fails
+        working-directory: back-end # Set directory to back-end
