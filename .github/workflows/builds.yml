@@ -31,4 +31,3 @@ jobs:
       - name: Run ESLint on Frontend
         run: npm run lint
         working-directory: front-end # Set directory to front-end
-        continue-on-error: true # To ensure the job continues even if linting fails
