@@ -3,30 +3,31 @@ name: Tests
 on: push
 
 jobs:
-  build:
+  lint:
+    name: Run ESLint
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    # - name: Run Super-Linter
-    #   uses: github/super-linter@v4
-    #   env:
-    #     DEFAULT_BRANCH: main
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #     VALIDATE_ALL_CODEBASE: false
-    #     # Restrict linter to only the back-end directory
-    #     LINTER_RULES_PATH: ./back-end
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.9.0' # Use the version your project requires
 
-    - name: Install dependencies
-      working-directory: ./back-end
-      run: npm install
+      - name: Install dependencies
+        run: npm install
+        working-directory: back-end # Set directory to back-end
 
-    # - name: Build the project
-    #   working-directory: ./back-end  
-    #   run: npm run build
+      - name: Run ESLint
+        run: npm run lint
+        working-directory: back-end # Set directory to back-end
+      
+      - name: Install dependencies
+        run: npm install
+        working-directory: front-end # Set directory to back-end
 
-    # - name: Run tests
-    #   working-directory: ./back-end  
-    #   run: npm test
+      - name: Run ESLint on Frontend
+        run: npm run lint
+        working-directory: front-end # Set directory to front-end
