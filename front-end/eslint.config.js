@@ -16,7 +16,11 @@ export default [
       "react/react-in-jsx-scope": "off",
       'react/jsx-key': [1, { checkFragmentShorthand: true }],
       "react/prop-types": "off",
-      "no-empty-interface": "off"
+      "no-empty-interface": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/no-require-imports" : "off",
+      "no-undef" : "off"
+              
     }
   }
 ];
