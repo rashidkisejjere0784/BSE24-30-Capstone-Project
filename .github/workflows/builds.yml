@@ -26,7 +26,7 @@ jobs:
       
       - name: Install dependencies
         run: npm install
-        working-directory: font-end # Set directory to back-end
+        working-directory: front-end # Set directory to back-end
 
       - name: Run ESLint on Frontend
         run: npm run lint
