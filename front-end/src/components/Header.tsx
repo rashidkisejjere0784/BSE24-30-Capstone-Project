@@ -92,7 +92,7 @@ const Header = () => {
                                 </button>
                                 <button onClick={()=>handleActiveTab("products")} className={`px-4 py-2 flex gap-2 ${activeTab === "products" ? "bg-gray-50" : ""} hover:text-gray-900 hover:bg-gray-50 transition-all duration-250 items-center text-sm`}>
                                     <FaRegBookmark />
-                                    <Link to={"#"}>Products</Link>
+                                    <Link to={"/products"}>Products</Link>
                                 </button>
                                 <button onClick={()=>handleActiveTab("wishlist")}  className={`px-4 py-2 flex gap-2 hover:text-gray-900 ${activeTab === "wishlist" ? "bg-gray-50" : ""} hover:bg-gray-50 transition-all duration-250 items-center text-sm`}>
                                     <FaRegHeart />
