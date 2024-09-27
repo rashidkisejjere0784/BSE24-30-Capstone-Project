@@ -5,7 +5,6 @@ const Footer = ()=>{
         <>
             <footer
                 className="mt-auto text-white bg-gray-900 pt-16 pb-8 text-nowrap"
-                id="footer"
             >
                 <div className="section md:flex md:flex-wrap md:gap-6 md:justify-between">
                     <div className="mb-8 md:mb-0">
@@ -83,7 +82,7 @@ const Footer = ()=>{
                     </div>
                 </div>
                 <div className="h-[1px] w-full bg-divider mt-20"/>
-                <div className="text-center text-gray-300 pt-8">
+                <div className="text-center text-gray-300 pt-8 text-wrap">
                     <p>Misercom - eCommerce Template © {new Date().getFullYear()}. Design by Ssaava Emma</p>
                 </div>
             </footer>
