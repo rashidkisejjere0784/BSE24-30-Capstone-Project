@@ -23,6 +23,10 @@ jobs:
       - name: Run ESLint
         run: npm run lint
         working-directory: back-end # Set directory to back-end
+      
+      - name: Install dependencies
+        run: npm install
+        working-directory: fontend-end # Set directory to back-end
 
       - name: Run ESLint on Frontend
         run: npm run lint
