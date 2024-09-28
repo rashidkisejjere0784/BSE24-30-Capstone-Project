@@ -8,7 +8,7 @@ import Products from "@/pages/products.tsx";
 import Product from "@/pages/product.tsx";
 import Wishlist from "@/pages/wishlist.tsx";
 import About from "./pages/about";
-// import ContactUs from "./pages/ContactUs";
+import ContactUs from "./pages/contactUs";
 import Cart from "@/pages/cart.tsx";
 // import Checkout from "@/pages/Checkout.tsx";
 const App = ()=>{
@@ -23,7 +23,7 @@ const App = ()=>{
                 <Route path={"/about"} element={<About />} />
                 <Route path={"/cart"} element={<Cart />}/>
                 {/*<Route path={"/checkout"} element={<Checkout />} />*/}
-                {/*<Route path={"/contact"} element={<ContactUs />} />*/}
+                <Route path={"/contact"} element={<ContactUs />} />
                 <Route path="*" element={<PageNotFound />} />
             </Route>
         </Routes>
