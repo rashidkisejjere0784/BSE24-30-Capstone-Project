@@ -81,6 +81,9 @@
   .vertical-spacing{
     @apply flex flex-col gap-4
   }
+  .reset-input{
+    @apply w-full ring-0 border-0 outline-none focus:outline-none
+  }
 }
 
 .ratio {

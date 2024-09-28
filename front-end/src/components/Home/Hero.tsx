@@ -1,7 +1,10 @@
 import console from "/images/console.png";
 import phone from "/images/google-pixel.png";
 import pods from "/images/pods.png"
-
+import {FaArrowRight, FaCreditCard, FaMedal} from "react-icons/fa";
+import { FaTruckFast } from "react-icons/fa6";
+import {BiSupport} from "react-icons/bi";
+import {GoDot, GoDotFill} from "react-icons/go";
 const Hero = ()=>{
     return (
         <>
@@ -23,12 +26,16 @@ const Hero = ()=>{
                                             Save up to 50% on select Xbox games. Get 3 months of PC Game
                                             Pass for $2 USD
                                         </p>
-                                        <button className="rounded-sm text-gray-00 font-bold bg-primary-500 px-6 py-4 flex gap-4">
+                                        <button className="rounded-sm text-gray-00 font-bold bg-primary-500 px-6 py-4 flex gap-4 items-center">
                                             <a href={"#"}>SHOP NOW</a>
-                                            <span><i className="fa-solid fa-arrow-right" /></span>
+                                            <span><FaArrowRight /></span>
                                         </button>
                                     </div>
-                                    <div>...</div>
+                                    <div className={"flex gap-2 items-center"}>
+                                        <GoDotFill />
+                                        <GoDot />
+                                        <GoDot />
+                                    </div>
                                 </div>
                                 <div className="relative">
                                     <img
@@ -53,9 +60,9 @@ const Hero = ()=>{
                                                 <h2 className="text-gray-00 my-4 font-bold text-2xl">
                                                     New Google Pixel 6 Pro
                                                 </h2>
-                                                <button className="rounded-sm text-gray-00 font-bold bg-primary-500 px-6 py-4 flex gap-4">
+                                                <button className="rounded-sm text-gray-00 font-bold bg-primary-500 px-6 py-4 flex gap-4 items-center">
                                                     <a>SHOP NOW</a>{" "}
-                                                    <span><i className="fa-solid fa-arrow-right" /></span>
+                                                    <span><FaArrowRight /></span>
                                                 </button>
                                             </div>
                                             <div className="relative">
@@ -83,9 +90,9 @@ const Hero = ()=>{
                                                 <p className="text-secondary-500 my-4 font-medium text-lg">
                                                     $299 USD
                                                 </p>
-                                                <button className="rounded-sm text-gray-00 font-bold bg-primary-500 px-6 py-4 flex gap-4">
+                                                <button className="rounded-sm text-gray-00 font-bold bg-primary-500 px-6 py-4 flex gap-4 items-center">
                                                     <a>SHOP NOW</a>{" "}
-                                                    <span><i className="fa-solid fa-arrow-right" /></span>
+                                                    <span><FaArrowRight /></span>
                                                 </button>
                                             </div>
                                         </div>
@@ -95,9 +102,9 @@ const Hero = ()=>{
                         </div>
                     </div>
                     {/*          Services*/}
-                    <div className="border-[1px] border-gray-100 rounded-md grid grid-cols-4 p-6 my-10">
-                        <div className="text-gray-900 flex gap-4 items-center px-6">
-                            <i className="fa-solid fa-truck-fast text-2xl" />
+                    <div className="border-[1px] border-gray-100 rounded-md grid lg:grid-cols-4 md:grid-cols-2 gap-4 p-6 my-10">
+                        <div className="border-l-[1px] border-l-gray-100 lg:border-none text-gray-900 flex gap-4 items-center px-6">
+                            <FaTruckFast className={"md:text-3xl text-2xl"} />
                             <div>
                                 <h3 className="font-medium">FASTEST DELIVERY</h3>
                                 <p className="text-gray-600 text-sm">Delivery in 24/HR</p>
@@ -105,7 +112,7 @@ const Hero = ()=>{
                         </div>
                         {/*            */}
                         <div className="border-l-[1px] border-l-gray-100 text-gray-900 flex gap-4 items-center px-6">
-                            <i className="fa-solid fa-medal text-2xl" />
+                            <FaMedal className={"md:text-3xl text-2xl"}  />
                             <div>
                                 <h3 className="font-medium">24 HOURS RETURN</h3>
                                 <p className="text-gray-600 text-sm">100% money-back guarantee</p>
@@ -113,7 +120,7 @@ const Hero = ()=>{
                         </div>
                         {/*            */}
                         <div className="border-l-[1px] border-l-gray-100 text-gray-900 flex gap-4 items-center px-6">
-                            <i className="fa-regular fa-credit-card text-2xl" />
+                            <FaCreditCard className={"md:text-3xl text-2xl"}  />
                             <div>
                                 <h3 className="font-medium">SECURE PAYMENT</h3>
                                 <p className="text-gray-600 text-sm">Your money is safe</p>
@@ -121,7 +128,7 @@ const Hero = ()=>{
                         </div>
                         {/*            */}
                         <div className="border-l-[1px] border-l-gray-100 text-gray-900 flex gap-4 items-center px-6">
-                            <i className="fa-solid fa-headphones text-2xl" />
+                            <BiSupport className={"md:text-3xl text-2xl"}  />
                             <div>
                                 <h3 className="font-medium">SUPPORT 24/7</h3>
                                 <p className="text-gray-600 text-sm">Live contact/message</p>
