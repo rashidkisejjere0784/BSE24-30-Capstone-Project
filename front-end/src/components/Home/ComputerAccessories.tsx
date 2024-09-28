@@ -1,6 +1,6 @@
 import earBuds from "/images/wireless-earbuds.png";
 import ProductCard from "@/components/ProductCard.tsx";
-import {products} from "@/assets/data/data.tsx";
+import {products} from "@/assets/data.ts";
 import ShopNowButton from "@/components/ShopNowButton.tsx";
 import Button from "@/components/Button.tsx";
 const ComputerAccessories =()=>{
@@ -8,15 +8,15 @@ const ComputerAccessories =()=>{
         <>
 
             <section className="section my-8">
-                <div className={"grid grid-cols-12 gap-6"}>
+                <div className={"grid 2xl:grid-cols-12 gap-6"}>
 
-                    <div className={"col-span-9 w-full h-full flex flex-col gap-6"}>
-                        <div className="flex justify-between items-center h-auto">
+                    <div className={"2xl:col-span-9 w-full h-full flex flex-col gap-6"}>
+                        <div className="flex justify-between items-center h-auto flex-wrap">
                             <div className="flex gap-4 items-center">
                                 <h2 className="text-gray-900 font-extrabold text-2xl">Computer Accessories</h2>
                             </div>
-                            <div className={"flex gap-6 text-sm "}>
-                                <ul className={"text-gray-600 list-none flex items-center gap-4"}>
+                            <div className={"flex gap-6 text-sm flex-wrap"}>
+                                <ul className={"text-gray-600 list-none flex items-center gap-4 flex-wrap"}>
                                     <li className={" py-2 border-b-2 border-b-primary-500 text-gray-900 font-bold  transition-all duration-100 px-2"}>All
                                         Product
                                     </li>
@@ -35,11 +35,11 @@ const ComputerAccessories =()=>{
                             </div>
                         </div>
                         {/*    Products*/}
-                        <div className={"grid grid-cols-4 grid-rows-2 gap-4 flex-grow"}>
+                        <div className={"grid 2xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 2xl:grid-rows-2 gap-4 flex-grow"}>
                             {/*    Products Card*/}
                             {
                                 products.slice(0, 8).map(({id, image, name, price, deals, discount}) => (
-                                    <ProductCard id ={id} src={image} name={name} amount={price} deal={deals}
+                                    <ProductCard key={id} id ={id} src={image} name={name} amount={price} deal={deals}
                                                  className={"max-h-[20rem] overflow-hidden"} discount={discount}/>
                                 ))
                             }
@@ -47,11 +47,11 @@ const ComputerAccessories =()=>{
                     </div>
 
                     {/*    */}
-                    <div className="col-span-3 w-full flex flex-col gap-4">
+                    <div className="2xl:col-span-3 w-full flex flex-col gap-4">
                         <div className={"bg-warning-200 rounded-lg p-6"}>
                             <img src={earBuds} alt={"Wireless EarBuds"} className={"mx-auto"}/>
                             <h3 className="text-gray-900 text-h2 font-bold text-center">Xiaomi Trues Wireless Earbuds</h3>
-                            <p className={"text-gray-700 text-center mt-4 mb-2"}>Escape the noise, It's time to hear the magic with Xiaomi Earbuds</p>
+                            <p className={"text-gray-700 text-center mt-4 mb-2"}>Escape the noise, It is time to hear the magic with Xiaomi Earbuds</p>
                             <div className={"flex gap-4 items-center flex-wrap w-fit mx-auto mb-4"}>
                                 <p className={"text-sm"}>Only for:</p>
                                 <button

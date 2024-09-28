@@ -3,7 +3,7 @@ import AuthPage from "@/pages/auth";
 import PageNotFound from "@/pages/page-not-found.tsx";
 import Base from "@/layouts/base.tsx";
 
-// import Home from "@/pages/Home.tsx";
+import Home from "@/pages/home.tsx";
 import Products from "@/pages/products.tsx";
 import Product from "@/pages/product.tsx";
 import Wishlist from "@/pages/wishlist.tsx";
@@ -15,7 +15,7 @@ const App = ()=>{
     return (
         <Routes>
             <Route path="/" element={<Base />}>
-                {/*<Route index element={<Home />} />*/}
+                <Route index element={<Home />} />
                 <Route path={"auth"} element={<AuthPage />} />
                 <Route path={"products"} element={<Products />} />
                 <Route path={"product/:productId"} element={<Product />} />
