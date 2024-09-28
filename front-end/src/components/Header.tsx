@@ -100,7 +100,7 @@ const Header = () => {
                                 </button>
                                 <button onClick={()=>handleActiveTab("about-us")}  className={`px-4 py-2 flex gap-2 hover:text-gray-900 ${activeTab === "about-us" ? "bg-gray-50" : ""} hover:bg-gray-50 transition-all duration-250 items-center text-sm`}>
                                     <FaRegLightbulb />
-                                    <Link to="#">About Us</Link>
+                                    <Link to={"/about"}>About Us</Link>
                                 </button>
                                 <button onClick={()=>handleActiveTab("support")}  className={`px-4 py-2 flex gap-2 hover:text-gray-900 ${activeTab === "support" ? "bg-gray-50" : ""} hover:bg-gray-50 transition-all duration-250 items-center text-sm`}>
                                     <MdOutlineSupportAgent />
