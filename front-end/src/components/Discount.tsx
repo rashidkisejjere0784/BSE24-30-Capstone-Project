@@ -3,6 +3,7 @@ interface Props{
     discount?: string;
     discountPosition?: string;
     priceColor?: string;
+    className?: string;
 }
 
 /**
@@ -14,10 +15,10 @@ interface Props{
  * @constructor
  *
  */
-const Discount = ({price, discount, discountPosition, priceColor = "text-gray-300"}:Props) => {
+const Discount = ({price, discount, discountPosition, priceColor = "text-gray-300", className}:Props) => {
     return (
         <>
-            <div className="my-4 flex gap-2 items-center font-bold">
+            <div className={`${className} my-4 flex gap-2 items-center font-bold`}>
                 {
                     discount !== "" && discountPosition === "left" ? <p className={`text-gray-300 line-through font-medium`}>{discount}</p> : ""
                 }

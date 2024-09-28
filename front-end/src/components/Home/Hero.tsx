@@ -95,8 +95,8 @@ const Hero = ()=>{
                         </div>
                     </div>
                     {/*          Services*/}
-                    <div className="border-[1px] border-gray-100 rounded-md grid grid-cols-4 p-6 my-10">
-                        <div className="text-gray-900 flex gap-4 items-center px-6">
+                    <div className="border-[1px] border-gray-100 rounded-md grid md:grid-cols-4 md:gap-0 gap-4 p-6 my-10">
+                        <div className="border-l-[1px] border-l-gray-100 md:border-none text-gray-900 flex gap-4 items-center px-6">
                             <i className="fa-solid fa-truck-fast text-2xl" />
                             <div>
                                 <h3 className="font-medium">FASTEST DELIVERY</h3>
