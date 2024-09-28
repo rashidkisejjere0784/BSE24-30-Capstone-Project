@@ -6,12 +6,12 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 
-import {categoriesShop} from "@/assets/data/data.tsx";
+import {categoriesShop} from "@/assets/data.ts";
 function CarouselItems() {
     return (
-        <section className="section my-8">
+        <section className="section md:my-8 overflow-hidden">
             <div className="my-4">
-                <h2 className="text-center font-extrabold text-h2 text-gray-900">Shop With Categories</h2>
+                <h2 className="text-center font-extrabold text-2xl md:text-h2 text-gray-900">Shop With Categories</h2>
             </div>
             <Carousel
                 opts={{
@@ -21,7 +21,7 @@ function CarouselItems() {
             >
                 <CarouselContent>
                     {categoriesShop.map(({img, title}, index) => (
-                        <CarouselItem key={index} className="max-w-60 my-4">
+                        <CarouselItem key={index} className="max-w-40 md:max-w-60 my-4">
                             {/*            Product 1*/}
                             <div className="border-[.5px] col-span-2 p-4 border-gray-100 relative text-wrap">
                                 <div className="w-full h-auto mx-auto">
