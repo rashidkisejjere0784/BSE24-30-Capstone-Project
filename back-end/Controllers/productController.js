@@ -122,7 +122,8 @@ const allProducts = async (req, res) => {
         res.status(200).json(brands);
       })
       .catch((err) => {
-        res.status(400).json({ message: 'Unable to get brands' });
+        console.log(err);
+        res.status(400).json({ message: 'Unable to get products' });
       });
   } catch (error) {
     return res.status(500).json({ message: error.message });

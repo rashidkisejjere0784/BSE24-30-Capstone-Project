@@ -28,12 +28,9 @@ const SignUp = async (req, res) => {
         'any.required': 'confirm password is required',
       }),
 
-      role: Joi.string()
-        .valid('user', 'admin', 'moderator') // Include 'moderator' here
-        .default('user')
-        .messages({
-          'any.only': 'Role must be one of [user, admin, moderator]', // Updated to match validation
-        }),
+      role: Joi.string().valid('user', 'admin').default('user').messages({
+        'any.only': 'Role must be one of [user, admin]',
+      }),
 
       confirm_email_token: Joi.string().optional().default('').allow(null, ''),
 
