@@ -1,20 +1,26 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
-const routes = require('./routes');
+const express = require("express");
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const routes = require("./routes");
+const cors = require("./cors");
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
-mongoose.set('debug', true);
-
+mongoose.set("debug", true);
+app.use(
+  cors({
+    origin: "https://localhost:5173",
+    credentials: true,
+  })
+);
 // Define the port variable
 const port = 3000;
 
 // MongoDB connection URI
 const dbURI =
-  'mongodb+srv://user123:user123@capstonebackend.o78na.mongodb.net/capstone-backend?retryWrites=true&w=majority';
+  "mongodb+srv://user123:user123@capstonebackend.o78na.mongodb.net/capstone-backend?retryWrites=true&w=majority";
 
 // Connect to MongoDB
 mongoose
@@ -25,14 +31,14 @@ mongoose
       console.log(`Server is running on port ${port}`);
     });
   })
-  .catch((error) => console.log('Connection error:', error));
+  .catch((error) => console.log("Connection error:", error));
 
 // Define API routes
-app.use('/api', routes);
+app.use("/api", routes);
 
 // Health check endpoint
-app.get('/health', (req, res) => {
-  res.status(200).send('Server is healthy!');
+app.get("/health", (req, res) => {
+  res.status(200).send("Server is healthy!");
 });
 
 // Function to close the mongoose connection
