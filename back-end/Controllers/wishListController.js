@@ -1,7 +1,7 @@
+/* eslint-disable camelcase */
 const Joi = require('joi');
 const mongoose = require('mongoose');
 const WishListModel = require('../models/WishListModel');
-const wishList = require('../models/WishListModel');
 
 const WishList = new WishListModel();
 
@@ -75,7 +75,7 @@ const editWishList = async (req, res) => {
 
     const result = await WishList.collection.updateOne(
       { _id: new mongoose.Types.ObjectId(wishListId) }, // Filter by ID
-      { $set: { user_id, product_id } } // Update name and description
+      { $set: { user_id, product_id } }, // Update name and description
     );
 
     // Check if the WishList was updated
