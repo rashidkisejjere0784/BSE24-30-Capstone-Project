@@ -18,7 +18,7 @@ const dbURI =
 
 // Connect to MongoDB
 mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(dbURI)
   .then(() => {
     // Start the server after successful connection
     app.listen(port, () => {
