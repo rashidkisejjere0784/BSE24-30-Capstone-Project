@@ -1,7 +1,7 @@
-const Joi = require("joi");
-const mongoose = require("mongoose");
-const WishListModel = require("../models/WishListModel");
-const wishList = require("../models/WishListModel");
+const Joi = require('joi');
+const mongoose = require('mongoose');
+const WishListModel = require('../models/WishListModel');
+const wishList = require('../models/WishListModel');
 
 const WishList = new WishListModel();
 
@@ -11,7 +11,7 @@ const addWishList = async (req, res) => {
 
     const joiSchema = Joi.object({
       productId: Joi.string().required().messages({
-        "string.empty": "Name is required",
+        'string.empty': 'Name is required',
       }),
     });
 
@@ -24,10 +24,10 @@ const addWishList = async (req, res) => {
         user_id: userId,
       })
       .then(() => {
-        res.status(200).json({ message: "WishList added successfully" });
+        res.status(200).json({ message: 'WishList added successfully' });
       })
       .catch((err) => {
-        res.status(400).json({ message: "Unable to create product" });
+        res.status(400).json({ message: 'Unable to create product' });
       });
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -43,7 +43,7 @@ const getAllWishLists = async (req, res) => {
         res.status(200).json(wishList);
       })
       .catch((err) => {
-        res.status(400).json({ message: "Unable to get WishLists" });
+        res.status(400).json({ message: 'Unable to get WishLists' });
       });
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -56,10 +56,10 @@ const editWishList = async (req, res) => {
 
     const joiSchema = Joi.object({
       product_id: Joi.string().required().messages({
-        "string.empty": "Name is required",
+        'string.empty': 'Name is required',
       }),
       wishListId: Joi.string().required().messages({
-        "string.empty": "Name is required",
+        'string.empty': 'Name is required',
       }),
     });
 
@@ -80,11 +80,11 @@ const editWishList = async (req, res) => {
 
     // Check if the WishList was updated
     if (result.matchedCount === 0) {
-      return res.status(404).json({ message: "WishList not found" });
+      return res.status(404).json({ message: 'WishList not found' });
     }
 
     // Return success message
-    return res.status(200).json({ message: "WishList updated successfully" });
+    return res.status(200).json({ message: 'WishList updated successfully' });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: error.message });
@@ -97,7 +97,7 @@ const deleteWishList = async (req, res) => {
 
     const joiSchema = Joi.object({
       wishListId: Joi.string().required().messages({
-        "string.empty": "WishList ID is required",
+        'string.empty': 'WishList ID is required',
       }),
     });
 
@@ -116,11 +116,11 @@ const deleteWishList = async (req, res) => {
 
     // If no document was deleted, return a 404 error
     if (result.deletedCount === 0) {
-      return res.status(404).json({ message: "WishList not found" });
+      return res.status(404).json({ message: 'WishList not found' });
     }
 
     // Success response
-    return res.status(200).json({ message: "WishList deleted successfully" });
+    return res.status(200).json({ message: 'WishList deleted successfully' });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
