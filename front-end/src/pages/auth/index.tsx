@@ -9,21 +9,24 @@ import { usePasswordToggle } from '@/assets/utils.ts'
 import axios from 'axios'
 const AuthPage = () => {
   const navigate = useNavigate()
-  const handleSignUp = async () => {
+  const handleSignUp = async (e: { preventDefault: () => void }) => {
+    e.preventDefault()
     try {
-      const repoonse = await axios.post(
+      const response = await axios.post(
         'http://localhost:3000/api/auth/signup',
+
         signUpForm
       )
-      if (repoonse) {
-        // setSignUpForm({
-        //   name: '',
-        //   email: '',
-        //   password: '',
-        //   confirmPassword: ''
-        // })
-        navigate('/')
+      if (response) {
+        setSignUpForm({
+          name: '',
+          email: '',
+          password: '',
+          confirmPassword: ''
+        })
       }
+      console.log(response)
+      navigate('/')
     } catch (error) {
       console.log(error)
     }
@@ -49,10 +52,10 @@ const AuthPage = () => {
     password: ''
   })
   const [signUpForm, setSignUpForm] = useState({
-    name: 'ssaava',
-    email: 'ssava@gmail.com',
-    password: 'yonayona',
-    confirmPassword: 'yonayona'
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
   })
   const handleLogInFormOnChange = (e: {
     preventDefault: () => void
@@ -193,7 +196,11 @@ const AuthPage = () => {
           <TabsContent value="sign up">
             <Card>
               <CardContent className="space-y-2">
-                <form className="space-y-2" onSubmit={handleSignUp}>
+                <form
+                  className="space-y-2"
+                  onSubmit={handleSignUp}
+                  method="POST"
+                >
                   <div className="py-4">
                     <Label htmlFor="name" className="text-gray-900">
                       Name
@@ -201,6 +208,7 @@ const AuthPage = () => {
                     <Input
                       type="text"
                       id="name"
+                      name="name"
                       value={signUpForm.name}
                       onChange={handleSignUpFormOnChange}
                     />
@@ -212,6 +220,7 @@ const AuthPage = () => {
                     <Input
                       type="email"
                       id="email"
+                      name="email"
                       value={signUpForm.email}
                       onChange={handleSignUpFormOnChange}
                     />
