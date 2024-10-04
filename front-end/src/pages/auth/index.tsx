@@ -7,39 +7,51 @@ import { FaEye, FaEyeSlash, FaLongArrowAltRight } from 'react-icons/fa'
 import { useState } from 'react'
 import { usePasswordToggle } from '@/assets/utils.ts'
 import axios from 'axios'
+import {toast} from "@/hooks/use-toast.ts";
+const BACkEND_API = 'http://127.0.0.1:3000/api/auth/signup';
 const AuthPage = () => {
   const navigate = useNavigate()
   const handleSignUp = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
     try {
-      const response = await axios.post(
-        'http://localhost:3000/api/auth/signup',
+      const response = await axios.post(BACkEND_API, signUpForm)
 
-        signUpForm
-      )
+      toast({
+        title: "Passed",
+        variant: "destructive",
+        duration: 2000
+      });
+
       if (response) {
         setSignUpForm({
           name: '',
           email: '',
           password: '',
-          confirmPassword: ''
+          confirm_password: ''
         })
       }
+
       console.log(response)
       navigate('/')
     } catch (error) {
       console.log(error)
+      toast({
+        title: "Failed",
+        variant: "destructive",
+        duration: 2000
+      });
     }
   }
 
+
   const handleLogin = async () => {
     try {
-      const repoonse = await axios.post(
+      const response = await axios.post(
         'http://localhost:3000/api/auth/login',
         logInForm
       )
-      console.log(repoonse)
-      //   if (repoonse) {
+      console.log(response)
+      //   if (response) {
       //     navigate('/')
       //   }
     } catch (error) {
@@ -52,10 +64,10 @@ const AuthPage = () => {
     password: ''
   })
   const [signUpForm, setSignUpForm] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    name: 'emm@gmail.com',
+    email: 'emm@gmail.com',
+    password: 'emm@gmail.com',
+    confirm_password: 'emm@gmail.com'
   })
   const handleLogInFormOnChange = (e: {
     preventDefault: () => void
@@ -260,9 +272,9 @@ const AuthPage = () => {
                     >
                       <Input
                         type={inputType}
-                        name={'confirmPassword'}
+                        name={'confirm_password'}
                         id="comfirm_password"
-                        value={signUpForm.confirmPassword}
+                        value={signUpForm.confirm_password}
                         onChange={handleSignUpFormOnChange}
                         className={
                           'w-full ring-0 border-0 outline-none focus:outline-none focus-visible:ring-0 shadow-none'
