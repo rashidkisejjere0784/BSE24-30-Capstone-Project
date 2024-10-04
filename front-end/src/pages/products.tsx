@@ -79,8 +79,9 @@ const Products = ()=>{
                                 <h3 className={"mb-4 text-gray-900 font-medium"}>CATEGORY</h3>
                                 <div className={"flex flex-col gap-4"}>
                                     {
-                                        Categories.map((category) => (
+                                        Categories.map((category, index) => (
                                             <label
+                                                key={index}
                                                 className={`${selectedCategory === category ? 'text-gray-900 font-medium' : 'text-gray-700'} text-sm flex items-center gap-4`}>
                                                 <input
                                                     checked={selectedCategory === category}
@@ -104,8 +105,9 @@ const Products = ()=>{
                                 </div>
                                 <div className={"flex flex-col gap-4 my-4"}>
                                     {
-                                        prices.map((price: string) => (
+                                        prices.map((price: string, index) => (
                                             <label
+                                                key={index}
                                                 className={`${selectedPrice === price ? 'text-gray-900 font-medium' : 'text-gray-700'} text-sm flex items-center gap-4`}>
                                                 <input
                                                     checked={selectedPrice === price}
