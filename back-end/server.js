@@ -1,14 +1,24 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const cors = require('cors');
 const routes = require('./routes');
+
+const ORIGIN = 'http://localhost:5173';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 mongoose.set('debug', true);
-
+app.use(
+  cors({
+    origin: ORIGIN,
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+  }),
+);
 // Define the port variable
 const port = 3000;
 
@@ -18,7 +28,7 @@ const dbURI =
 
 // Connect to MongoDB
 mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(dbURI)
   .then(() => {
     // Start the server after successful connection
     app.listen(port, () => {
