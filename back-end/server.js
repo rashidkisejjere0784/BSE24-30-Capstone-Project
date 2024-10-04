@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const routes = require('./routes');
 
+const ORIGIN = 'http://localhost:5173';
+
 dotenv.config();
 
 const app = express();
@@ -12,8 +14,9 @@ app.use(express.json());
 mongoose.set('debug', true);
 app.use(
   cors({
-    origin: 'https://localhost:5173',
-    credentials: true,
+    origin: ORIGIN,
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
   }),
 );
 // Define the port variable
