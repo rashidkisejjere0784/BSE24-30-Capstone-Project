@@ -28,15 +28,16 @@ steps:
     command: 'install'
     workingDir: 'front-end'
 - task: Npm@1
-  displayName: " Packages for the Frontend"
+  displayName: "Building packages for the Frontend"
   inputs:
-    command: 'install'
+    command: 'custom'
     workingDir: 'front-end'
     customCommand: 'run build'
 - task: CopyFiles@2
   inputs:
     Contents: |
       front-end/dist/**
+      back-end/**
     TargetFolder: $(Build.ArtifactStagingDirectory)
     
 - task: PublishBuildArtifacts@1
