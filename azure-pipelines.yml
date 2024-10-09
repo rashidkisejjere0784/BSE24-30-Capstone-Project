@@ -8,7 +8,7 @@ trigger:
 
 pool:
   name: Azure Pipelines
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
 - task: NodeTool@0
@@ -20,7 +20,7 @@ steps:
   displayName: "Install Packages for the Backend"
   inputs:
     command: 'custom'
-    customCommand: 'install --omit="dev"'
+    customCommand: 'install'
     workingDir: 'back-end'
 - task: Npm@1
   displayName: "Install Packages for the Frontend"
@@ -28,7 +28,7 @@ steps:
     command: 'install'
     workingDir: 'front-end'
 - task: Npm@1
-  displayName: " Packages for the Frontend"
+  displayName: "Building packages for the Frontend"
   inputs:
     command: 'custom'
     workingDir: 'front-end'
