@@ -19,7 +19,8 @@ steps:
 - task: Npm@1
   displayName: "Install Packages for the Backend"
   inputs:
-    command: 'install'
+    command: 'custom'
+    customCommand: 'install --omit="dev"'
     workingDir: 'back-end'
 - task: Npm@1
   displayName: "Install Packages for the Frontend"
