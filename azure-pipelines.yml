@@ -20,7 +20,7 @@ steps:
   displayName: "Install Packages for the Backend"
   inputs:
     command: 'custom'
-    customCommand: 'install --omit="dev"'
+    customCommand: 'install'
     workingDir: 'back-end'
 - task: Npm@1
   displayName: "Install Packages for the Frontend"
@@ -30,7 +30,7 @@ steps:
 - task: Npm@1
   displayName: " Packages for the Frontend"
   inputs:
-    command: 'custom'
+    command: 'install'
     workingDir: 'front-end'
     customCommand: 'run build'
 - task: CopyFiles@2
